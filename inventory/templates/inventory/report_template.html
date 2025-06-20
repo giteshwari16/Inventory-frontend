@@ -1,0 +1,72 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Inventory Report</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 1in;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100;
+            border-collapse: collapse;
+            word-wrap: break-word;
+            table-layout: fixed;
+        }
+
+        th, td {
+            border: 1px solid #333;
+            padding: 8px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #f0f0f0;
+        }
+
+        td {
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <h2>Inventory Product Report</h2>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 20%;">Name</th>
+                <th style="width: 10%;">Qty</th>
+                <th style="width: 15%;">Price</th>
+                <th style="width: 35%;">Description</th>
+                <th style="width: 20%;">Last Updated</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <td>{{ product.name }}</td>
+                <td>{{ product.quantity }}</td>
+                <td>₹{{ product.price }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.updated_at|date:"d M Y, H:i" }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
