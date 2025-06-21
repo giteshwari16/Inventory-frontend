@@ -418,12 +418,48 @@ function InventoryApp() {
         </div>
 
         {/* Charts Section */}
-        <div className="bg-white rounded-xl shadow p-6 mb-8">
-          <div className="mb-6">
-            <Bar data={chartData} options={{ maintainAspectRatio: false, borderRadius: 8 }} height={250} />
+        <div className="bg-white rounded-xl shadow p-6 mb-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="chart-container">
+            <Bar 
+              data={chartData} 
+              options={{ 
+                responsive: true,
+                maintainAspectRatio: false, 
+                plugins: {
+                  title: {
+                    display: true,
+                    text: 'Product Quantity Distribution',
+                    font: { size: 18, weight: 'bold' },
+                    color: '#3730a3',
+                    padding: { bottom: 20 }
+                  }
+                },
+                scales: { x: { grid: { display: false } }, y: { grid: { display: true } } },
+                borderRadius: 8 
+              }} 
+              height={300} 
+            />
           </div>
-          <div>
-            <Line data={chartData} options={{ maintainAspectRatio: false, tension: 0.4 }} height={250} />
+          <div className="chart-container">
+            <Line 
+              data={chartData} 
+              options={{ 
+                responsive: true,
+                maintainAspectRatio: false, 
+                tension: 0.4,
+                plugins: {
+                  title: {
+                    display: true,
+                    text: 'Sales & Stock Trend',
+                    font: { size: 18, weight: 'bold' },
+                    color: '#3730a3',
+                    padding: { bottom: 20 }
+                  }
+                },
+                scales: { x: { grid: { display: false } }, y: { grid: { display: true } } }
+              }} 
+              height={300} 
+            />
           </div>
         </div>
 
