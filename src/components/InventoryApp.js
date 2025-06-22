@@ -33,7 +33,7 @@ ChartJS.register(
 // npm install react-data-export
 // import { ExcelFile, ExcelSheet } from "react-data-export";
 
-const API = "http://localhost:8000";
+const API = "https://inventory-backend-o45h.onrender.com";
 
 function InventoryApp() {
   // Auth
